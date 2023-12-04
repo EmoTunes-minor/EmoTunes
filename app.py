@@ -131,8 +131,8 @@ def moodtape():
         top_tracks = aggregate_top_tracks(spotify_auth, top_artists)
         selected_tracks = select_tracks(spotify_auth, top_tracks, mood1)
         playlist = create_playlist(spotify_auth, selected_tracks, mood1)
-    print("...created playlist")
-    print("...check your Spotify")
+    print("Created playlist!")
+    print("Check your Spotify!")
 
 
 @app.route('/')
