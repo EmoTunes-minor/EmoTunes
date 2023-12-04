@@ -1,7 +1,6 @@
-from flask import Flask, flash, redirect, render_template, request, session, abort
+from flask import Flask, render_template
+
  
-import sys
-import spotipy
 import spotipy.util as util
 import threading
 import os
@@ -10,9 +9,8 @@ import tempfile
 from moodtape_functions import authenticate_spotify, aggregate_top_artists, aggregate_top_tracks, select_tracks, create_playlist
 from deepface import DeepFace
 
-import numpy as np
+
 import cv2
-from collections import Counter
 
 
 
@@ -133,7 +131,8 @@ def moodtape():
         top_tracks = aggregate_top_tracks(spotify_auth, top_artists)
         selected_tracks = select_tracks(spotify_auth, top_tracks, mood1)
         playlist = create_playlist(spotify_auth, selected_tracks, mood1)
-    return render_template('playlist.html', playlist=playlist)
+    print("...created playlist")
+    print("...check your Spotify")
 
 
 @app.route('/')
